@@ -4,7 +4,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
-import { WHATSAPP_LINK } from './WhatsAppButton';
+import { WHATSAPP_LINK, WHATSAPP_NUMBER } from './WhatsAppButton';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -22,15 +22,16 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    const text = `Hi Abhilash, new message from your portfolio:\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
     toast({
-      title: "Message sent successfully!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: "Opening WhatsApp...",
+      description: "Tap send in WhatsApp to deliver your message.",
     });
-    
+
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
   };
