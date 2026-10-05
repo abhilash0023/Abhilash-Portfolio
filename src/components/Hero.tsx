@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
 import profileAsset from '../assets/abhilash-profile.jpg.asset.json';
+import resumeAsset from '../assets/Abhilash_K_Resume.pdf.asset.json';
 import { OrbitControls, Float } from '@react-three/drei';
 import { Suspense } from 'react';
 
@@ -26,10 +27,9 @@ const Hero = () => {
   };
 
   const downloadResume = () => {
-    // In a real app, you'd have the resume file in public folder
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/aff95c92-bebb-4c2d-b8b5-33427da75d74.png';
-    link.download = 'Abhilash_K_Resume.png';
+    link.href = resumeAsset.url;
+    link.download = 'Abhilash_K_Resume.pdf';
     link.click();
   };
 
