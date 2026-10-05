@@ -26,10 +26,9 @@ const Hero = () => {
   };
 
   const downloadResume = () => {
-    // In a real app, you'd have the resume file in public folder
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/aff95c92-bebb-4c2d-b8b5-33427da75d74.png';
-    link.download = 'Abhilash_K_Resume.png';
+    link.href = '/resume/Abhilash_K_Resume.pdf';
+    link.download = 'Abhilash_K_Resume.pdf';
     link.click();
   };
 
